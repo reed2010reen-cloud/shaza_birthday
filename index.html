@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title> 
+    
+    <link rel="stylesheet" href="birthstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
+    
+</head>
+ 
+<body>
+    <div id="page1">
+        <section class="heading"> 
+            <h1> Hi Dear </h1>
+        </section>
+
+        <div class="text-box">
+            <p>I apologize for not being able to attend your lovely party, So I have prepared a gift in advance.</p>
+            <p>Press the button.</p>
+        </div>
+        
+        <button class="hero" onclick="showPage2()">Click Me</button>
+        
+        <div class="corner top-left">🎉</div>
+        <div class="corner top-right">🎉</div>
+        <div class="corner bottom-left">🎉</div>
+        <div class="corner bottom-right">🎉</div>
+    </div>
+
+    <!-- page 2 -->
+    <div id="page2" style="display: none; text-align: center; margin-top: 20vh;">
+
+        <audio id="birthday-sound" src="../shaza_birthday/mp3/happy.mp3"></audio> //song
+        <div id="confetti-container"></div> //pappers
+        <section class="heading"> 
+            <h1>Happy Birthday! 🎂🎉</h1>
+            <p>Happy Birthday! I Truly Love YOU, You are Absolutely Lovely and Stunning; Words Really Can't Describe You.<br> I Feel So At Ease With You. Happy Birthday, And May God Grant You Everything You Wish For.</p>
+            <P>🌹🤍🌹🤍🌹</P> <br>
+            <h4>For My Lovely Kala , <br> From Your Noreeeen </h4>
+        </section>
+        <button class="hero" onclick="showPage1()">Back</button>
+    </div>
+
+
+    <script>
+        function showPage2() {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'flex';
+          
+            var audio = document.getElementById('birthday-sound');
+            audio.play().catch(function(error) {
+                console.log("حدث خطأ أثناء تشغيل الصوت:", error);
+            });
+            createConfetti();
+
+        }
+
+        function showPage1() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page1').style.display = 'block';
+            
+            var audio = document.getElementById('birthday-sound');
+            audio.pause();
+            audio.currentTime = 0; 
+            document.getElementById('confetti-container').innerHTML = '';//stop the papper
+        }
+
+         function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FFC107', '#FF4081', '#00E676', '#00B0FF', '#D500F9', '#FF3D00'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 15 + 10 + 'px';
+                container.appendChild(confetti);
+            }
+        }
+    </script>
+
+</body>
+</html>

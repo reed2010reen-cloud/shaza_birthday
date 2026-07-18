@@ -1,0 +1,171 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFF7C5;
+    font-family:  cursive;
+    min-height: 100vh;
+}
+
+/* 2. تنسيقات الصفحة الأولى */
+h1 {
+    color: #4F252E;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-family: "Fleur De Leah" , cursive ;
+}
+
+p {
+    color: #F4AE52;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero {
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    color: #F4AE52;
+    border: 1px solid #4F252E;
+    padding: 12px 34px;
+    font-size: 25px;
+    background: transparent;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+    transition: all 0.5s ease;
+    font-family: "Fleur De Leah", cursive;
+}
+
+.hero:hover {
+    border: 1px solid #C1EBE9;
+    background: #C1EBE9;
+    color: #4F252E; /* عشان اللون يبان على الخلفية الفاتحة */
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    font-family: "Fleur De Leah", cursive;
+}
+
+/* 3. زوايا الزينة */
+.corner {
+    position: fixed;
+    font-size: 60px;
+    z-index: 10;
+}
+.top-left { top: 10px; left: 10px; }
+.top-right { top: 10px; right: 10px; transform: scaleX(-1); }
+.bottom-left { bottom: 10px; left: 10px; transform: scaleY(-1); }
+.bottom-right { bottom: 10px; right: 10px; transform: scale(-1, -1); }
+
+
+
+/* ========================================= */
+#page2 {
+    display: flex; 
+    min-width: 100%;
+    min-height: 100%;
+    
+    background: url("../shaza_birthday/image/shaza2.png") no-repeat center center;
+    background-size: cover;
+
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#page2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(8px);
+    transform: scale(1.1); 
+    z-index: 1;
+    background: url("../shaza_birthday/image/shaza2.png") no-repeat center center;
+    background-size: cover;
+}
+
+#page2 > * {
+    position: relative;
+    z-index: 2;
+}
+
+#page2 h1 {
+    color: #FFF7C5; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-size: 50px;
+    margin-bottom: 40px;
+    position: top;
+}
+
+#page2 p{
+    color: #fffad8;
+    font-size: 30px;
+
+}
+
+#page2 h4{
+    font-family: "Fleur De Leah", cursive;
+    font-size: 30px;
+    color: #C1EBE9;
+}
+
+#page2 .hero {
+    background: #FFF7C5; 
+    color: #F4AE52;
+    border-color: #4F252E;
+    font-weight: bold;
+    border: 1px solid #4F252E;
+    position: absolute; 
+    bottom: 5px;       
+    left: 20px; 
+   font-size: 15px;
+
+}
+
+#page2 .hero:hover {
+    background: #C1EBE9;
+    color: #4F252E;
+    border-color: transparent;
+
+}
+
+#confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; 
+    z-index: 3;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -20px;
+    border-radius: 3px;
+    animation: fall linear infinite;
+    animation-duration: 4s; /* speed */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(105vh) rotate(720deg);
+        opacity: 0.3;
+    }
+}
